@@ -8,7 +8,7 @@ BRANCH=$(git branch | fzf +m \
     --layout reverse \
     --border \
     --preview \
-        'git -c color.ui=always diff $($CURRENT_BRANCH) $(echo {} | tr -d " ")' \
+        'git -c color.ui=always diff $(git branch | grep "^*" | tr -d "* ") $(echo {} | tr -d " ")' \
     --color bg:#222222,preview-bg:#333333)
 
 if [ "$BRANCH" == "* $CURRENT_BRANCH" ]; then
