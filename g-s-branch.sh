@@ -7,7 +7,7 @@ BRANCH=$(git branch | fzf +m \
     --layout reverse \
     --border \
     --preview \
-        'git -c color.ui=always diff $(echo {} | tr -d " *")' \
+        'git -c color.ui=always log --oneline $(echo {} | tr -d " *")' \
     --color bg:#222222,preview-bg:#333333)
 BRANCH=$(echo $BRANCH | tr -d " ")
 
