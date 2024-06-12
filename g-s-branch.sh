@@ -12,6 +12,7 @@ BRANCH=$(git branch | fzf +m \
 
 if [ $? -eq 130 ]; then
     echo "No branch selected or operation cancelled."
+    exit 1
 fi
 
 BRANCH=$(echo $BRANCH | tr -d " ")
