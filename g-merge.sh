@@ -18,6 +18,7 @@ if [ "$BRANCH" == "* $CURRENT_BRANCH" ]; then
 fi
 
 if [ $? -eq 0 ]; then
+    BRANCH=$(echo $BRANCH | tr -d " ")
     git merge "$BRANCH"
 else
     echo "No branch selected or operation cancelled."
