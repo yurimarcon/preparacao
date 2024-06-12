@@ -9,10 +9,10 @@ BRANCH=$(git branch | fzf +m \
     --preview \
         'git -c color.ui=always log --oneline $(echo {} | tr -d " *")' \
     --color bg:#222222,preview-bg:#333333)
-BRANCH=$(echo $BRANCH | tr -d " ")
 
-if [ $? -eq 0 ]; then
-    git switch "$BRANCH"
-else
+if [ $? -eq 130 ]; then
     echo "No branch selected or operation cancelled."
 fi
+
+BRANCH=$(echo $BRANCH | tr -d " ")
+git switch "$BRANCH"

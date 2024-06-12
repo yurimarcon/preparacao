@@ -11,13 +11,11 @@ BRANCH=$(git branch | fzf +m \
         'git -c color.ui=always diff $(git branch | grep "^*" | tr -d "* ") $(echo {} | tr -d " ")' \
     --color bg:#222222,preview-bg:#333333)
 
+if [ $? -eq 130 ]; then
+    echo "No branch selected or operation cancelled."
+fi
+
 if [ "$BRANCH" == "* $CURRENT_BRANCH" ]; then
     echo "You can not merge the current branch."
     exit 1
-fi
-
-if [ $? -eq 0 ]; then
-    git merge "$BRANCH"
-else
-    echo "No branch selected or operation cancelled."
 fi
