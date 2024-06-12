@@ -21,6 +21,3 @@ if [ $? -eq 0 ]; then
 else
     echo "No branch selected or operation cancelled."
 fi
-
-
-echo "test"
