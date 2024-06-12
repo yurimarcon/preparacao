@@ -22,4 +22,3 @@ fi
 
 BRANCH=$(echo $BRANCH | tr -d " ")
 git merge "$BRANCH"
-
