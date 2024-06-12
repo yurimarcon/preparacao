@@ -19,3 +19,6 @@ if [ "$BRANCH" == "* $CURRENT_BRANCH" ]; then
     echo "You can not merge the current branch."
     exit 1
 fi
+
+BRANCH=$(echo $BRANCH | tr -d " ")
+git merge "$BRANCH"
