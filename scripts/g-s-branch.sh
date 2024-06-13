@@ -4,6 +4,7 @@ CURRENT_BRANCH=$(git branch | grep "^*" | tr -d "* ")
 
 BRANCH=$(git branch | fzf +m \
     --height 100% \
+    --header "Select the branch to go:" \
     --layout reverse \
     --border \
     --preview \

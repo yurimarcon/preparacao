@@ -7,7 +7,7 @@ options=(\
     "Sair")
 
 selected=$(for op in "${options[@]}" ; do echo $op ; done | fzf +m \
-    --height 100% \
+    --height 40% \
     --layout reverse \
     --border)
 

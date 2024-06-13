@@ -8,7 +8,7 @@ BRANCH=$(git branch | fzf +m \
     --layout reverse \
     --border \
     --preview \
-        'git -c color.ui=always diff $(git branch | grep "^*" | tr -d "* ") $(echo {} | tr -d " ")' \
+        'git -c color.ui=always diff $(git branch | grep "^*" | tr -d "* ") $(echo {} | tr -d "* ")' \
     --color bg:#222222,preview-bg:#333333)
 
 if [ $? -eq 130 ]; then
@@ -16,10 +16,11 @@ if [ $? -eq 130 ]; then
     exit 1
 fi
 
-if [ "$BRANCH" == "* $CURRENT_BRANCH" ]; then
+BRANCH=$(echo $BRANCH | tr -d " ")
+
+if [ "$BRANCH" == "$CURRENT_BRANCH" ]; then
     echo "You can not merge the current branch."
     exit 1
 fi
 
-BRANCH=$(echo $BRANCH | tr -d " ")
 git merge "$BRANCH"

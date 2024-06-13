@@ -4,11 +4,11 @@ CURRENT_BRANCH=$(git branch | grep "^*" | tr -d "* ")
 
 BRANCH=$(git branch | fzf -m \
     --height 100% \
+    --header "Select a branch to Delete:" \
     --layout reverse \
     --border \
     --preview \
         'git -c color.ui=always log --oneline $(echo {} | tr -d "*")' \
-    --print-query \
     --color bg:#222222,preview-bg:#333333)
 
 if [ $? -eq 130 ]; then
