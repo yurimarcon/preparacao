@@ -16,7 +16,9 @@ if [ $? -eq 130 ]; then
     exit 1
 fi
 
-if [ "$BRANCH" == "* $CURRENT_BRANCH" ]; then
+BRANCH=$(echo "$BRANCH" | tr -d "* \n")
+
+if [ "$BRANCH" == "$CURRENT_BRANCH" ]; then
     echo "You can not delete the current branch."
     exit 1
 fi

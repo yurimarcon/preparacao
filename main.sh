@@ -13,17 +13,17 @@ selected=$(for op in "${options[@]}" ; do echo $op ; done | fzf +m \
 
 case "$selected" in
     ${options[0]})
-        echo "Selecionou o primeiro"
+        echo "$selected"
         ./scripts/g-s-branch.sh
         exit 0
     ;;
     ${options[1]})
-        echo "Selecionou o segundo"
+        echo "$selected"
         ./scripts/g-merge.sh
         exit 0
     ;;
     ${options[2]})
-        echo "Selecionou o terceiro"
+        echo "$selected"
         ./scripts/g-d-branch.sh
         exit 0
     ;;
